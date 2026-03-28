@@ -1,0 +1,121 @@
+/* Animations */
+
+/* ── Page Transitions (CSS View Transitions API) ─────────────────────────── */
+
+/* Enable MPA view transitions — default crossfade for all navigations */
+/* 1. 启用跨页面过渡 */
+/* @view-transition {
+  navigation: auto;
+} */
+/* 3. 自定义动画逻辑 */
+
+/* swipe-left: 旧页向左出，新页从右进 */
+/* html[data-page-enter="swipe-left"]::view-transition-old(root) {
+  animation: 400ms ease-in-out both vt-exit-left;
+}
+html[data-page-enter="swipe-left"]::view-transition-new(root) {
+  animation: 400ms ease-in-out both vt-enter-from-right;
+} */
+
+/* swipe-right: 旧页向右出，新页从左进 */
+/* html[data-page-enter="swipe-right"]::view-transition-old(root) {
+  animation: 400ms ease-in-out both vt-exit-right;
+}
+html[data-page-enter="swipe-right"]::view-transition-new(root) {
+  animation: 400ms ease-in-out both vt-enter-from-left;
+} */
+
+/* 4. 关键帧定义：强制 opacity 为 1 */
+/* @keyframes vt-exit-left {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-100%); opacity: 1; }
+}
+@keyframes vt-enter-from-right {
+  from { transform: translateX(100%); opacity: 1; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes vt-exit-right {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 1; }
+}
+@keyframes vt-enter-from-left {
+  from { transform: translateX(-100%); opacity: 1; }
+  to { transform: translateX(0); opacity: 1; }
+} */
+
+/* 减弱动画偏好 */
+/* @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root) { animation: none !important; }
+} */
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+html.swipe-left, html.swipe-right {
+  overflow-x: hidden;
+}
+
+html.swipe-left body main, html.swipe-right body main {
+  will-change: filter, opacity, transform;
+  animation-duration: 200ms;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  animation-fill-mode: both;
+}
+
+/* 场景一：向左滑入（新页面从右边 50px 处模糊切入） */
+html.swipe-left body main {
+  animation-name: blurSlideInFromRight;
+}
+
+/* 场景二：向右滑入（新页面从左边 -50px 处模糊切入） */
+html.swipe-right body main {
+  animation-name: blurSlideInFromLeft;
+}
+
+/* 关键帧：从右向左滑 + 渐显 */
+@keyframes blurSlideInFromRight {
+  from { 
+    filter: blur(12px);
+    opacity: 1;
+    transform: translateX(50px); /* 50px 就够了，太多会显得晃眼 */
+  }
+  to { 
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 关键帧：从左向右滑 + 渐显 */
+@keyframes blurSlideInFromLeft {
+  from { 
+    filter: blur(12px);
+    opacity: 1;
+    transform: translateX(-50px);
+  }
+  to { 
+    filter: blur(0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

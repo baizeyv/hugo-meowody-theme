@@ -1,0 +1,29 @@
+<footer class="site-footer">
+  <div class="footer-content">
+    <p class="footer-text">
+&copy;
+      {{/* 定义当前年份变量 */}}
+      {{- $currentYear := now.Year -}}
+      {{- $startYear := site.Params.copyright.startYear -}}
+
+      {{/* 逻辑判断：如果开始年份存在且不等于当前年份，才显示区间 */}}
+      {{- if and $startYear (ne (int $startYear) $currentYear) -}}
+        {{ $startYear }}&ndash;{{ $currentYear }}
+      {{- else -}}
+        {{ $currentYear }}
+      {{- end -}}
+
+      {{/* 版权所有人：优先取 owner，没有则取站点标题 */}}
+      {{ site.Params.copyright.owner | default site.Title }}.
+
+      {{ if site.Params.footerText }}
+        {{ site.Params.footerText }}
+      {{ end }}
+    </p>
+    {{ if site.Params.social }}
+      <div class="footer-social">
+        {{ partial "social-links.html" . }}
+      </div>
+    {{ end }}
+  </div>
+</footer>

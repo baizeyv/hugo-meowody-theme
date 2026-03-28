@@ -1,0 +1,45 @@
+baseURL = 'https://meowody.com/'
+locale = 'en-US'
+title = 'meowody'
+
+[params]
+  description = "test description"
+  footerText = "test footer text"
+  author = "baizeyv"
+  heroTitleLine1 = "test line 1"
+  heroTitleLine2 = "test line 2"
+  [params.social]
+    github = "https://github.com/baizeyv"
+    gitlab = "https://gitlab.com/baizeyv"
+    twitter = "_baizeyv"
+    email = "baizeyv@gmail.com"
+  [params.copyright]
+    owner = "baizeyv"
+    startYear = 2026
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+
+  [[menus.main]]
+    name = 'Posts'
+    pageRef = '/posts'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    weight = 30
+
+  [[menus.main]]
+    name = 'About'
+    url = "/about/"
+    weight = 40
+
+[pagination]
+  pageSize = 10
+
+[outputs]
+  home = ["HTML", "JSON"]

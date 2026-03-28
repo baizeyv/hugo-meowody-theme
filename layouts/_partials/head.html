@@ -1,0 +1,95 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="{{ site.Language.LanguageCode }}">
+<meta name="theme-color" content ="#C6A0F6">
+<script>
+  // Set theme immediately to prevent flash
+  (function () {
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const theme = storedTheme || (systemPrefersLight ? "light" : "dark");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+  // Page transition: read direction before any external resources load
+  (function(){var t=sessionStorage.getItem('meowody_page_animation');
+    if(t)
+    {
+          document.documentElement.classList.add(t);
+        document.documentElement.setAttribute('data-page-enter',t);
+        sessionStorage.removeItem('meowody_page_animation');
+    }})();
+    // Search index URL for current language (multilingual support)
+    window.MEOWODY_SEARCH_INDEX_URL = '{{ "index.json" | relLangURL }}';
+    // Language prefixes for URL normalization in page transitions
+    window.MEOWODY_LANG_PREFIXES = [{{ range $i, $lang := site.Languages }}{{ if $i }},{{ end }}'{{ $lang.Lang }}'{{ end }}];
+</script>
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+<!-- 1.先找文章的front-matter区中的 description: "foo_bar" -->
+<!-- 2.若为主页,则找配置中的[Params]下的description -->
+<!-- 3.非主页也没有front-matter配置,则.Summary抓取文章开头的几百个字符,| plainify脱掉html外壳,如果有图片链接或加粗就统统过滤掉,只剩下文字,| truncate 160 截取到160个字符 -->
+<meta name="description" content="{{- if .Description -}}
+        {{ .Description }}
+    {{- else if .IsHome -}}
+        {{ site.Params.description }}
+    {{- else -}}
+        {{ .Summary | plainify | truncate 160 }}
+    {{- end -}}
+">
+    
+<!-- 从front-matter中找 tags 的值,用", " 分割 -->
+{{ if .Params.tags }}
+    <meta name="keywords" content="{{ delimit .Params.tags ", " }}">
+{{ end }}
+
+<!-- 先找front-matter中的author配置,若没有则读取配置中的[Params]下的author变量 -->
+{{ if .Params.author }}
+    <meta name="author" content="{{ .Params.author }}">
+{{ else if site.Params.author }}
+    <meta name="author" content="{{ site.Params.author }}">
+{{ end }}
+
+<!-- 规范链接, .Permalink会自动抓取hugo.toml配置中的baseURL,并拼上改文章的路径,生成一个完整的绝对路径URL -->
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{ range .Translations -}}
+    <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{ end -}}
+    <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
+{{- $defaultLang := (index site.Languages 0).Lang -}}
+{{ if eq .Language.Lang $defaultLang -}}
+    <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ else -}}
+    {{ range .Translations -}}
+        {{ if eq .Language.Lang $defaultLang -}}
+            <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+        {{ end -}}
+    {{ end -}}
+{{ end }}
+
+{{ partial "head/robots.html" . }}
+{{ partial "head/opengraph.html" . }}
+{{ partial "head/json-ld.html" . }}
+
+<!-- 优化字体加载速度, media="print"将字体放在后台下载,不阻止渲染. onload 是当字体下载完成后执行的js, 相当于字体下载成功就用新字体,否则还是系统默认字体 -->
+<!-- Google Fonts: Space Grotesk (headings), Inter (body), Outfit (logo), and JetBrains Mono (code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+  media="print"
+  onload="this.media='all'">
+<noscript>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</noscript>
+
+{{ partial "head/css.html" . }}
+
+{{ partial "head/favicon.html" . }}
+
+{{ range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}">
+{{ end }}
