@@ -64,7 +64,6 @@
     // Listen for theme changes
     const observer = new MutationObserver(() => {
       const currentTheme = document.documentElement.getAttribute("data-theme");
-    console.log(currentTheme);
       if (currentTheme === "light") {
         if (syntaxDark) syntaxDark.disabled = true;
         if (syntaxLight) syntaxLight.disabled = false;
