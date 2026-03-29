@@ -1,7 +1,8 @@
 <!-- Favicons (configurable via site.Params.favicons.*, defaults to standard paths) -->
 {{- $fav := site.Params.favicons | default (dict) -}}
 {{- $ico := default "/favicon.ico" (index $fav "ico") -}}
-{{- $png := default "/favicon.png" (index $fav "png") -}}
+{{- $svg := default "/favicon.svg" (index $fav "svg") -}}
+{{- $png := default "/favicon-96x96.png" (index $fav "png") -}}
 {{- $png16 := default "/favicon-16x16.png" (index $fav "png16") -}}
 {{- $png32 := default "/favicon-32x32.png" (index $fav "png32") -}}
 {{- $apple180 := default "/apple-touch-icon.png" (index $fav "apple180") -}}
@@ -12,6 +13,8 @@
 <!-- Root favicon for Google and other crawlers - Google prefers larger sizes (48x48+) -->
 <link rel="icon" type="image/x-icon" href="{{ $ico }}">
 <link rel="shortcut icon" type="image/x-icon" href="{{ $ico }}">
+
+<link rel="icon" type="image/svg+xml" href="{{ $svg }}">
 
 <!-- Primary PNG favicon - Google also checks for /favicon.png -->
 <link rel="icon" type="image/png" href="{{ $png }}">
