@@ -21,6 +21,8 @@
     --accent-bg-crust-alpha: rgba(24,25,38,0.6);
     --accent-blue: rgba(138,173,244,1);
     --hover-red:rgba(237,135,150,0.08);
+
+    --accent-bg-mantle-alpha: rgba(30,32,48,0.75);
     
     --bg-primary: var(--bg-deep);
     --bg-secondary: var(--glass-surface);
@@ -127,6 +129,7 @@
     --text-secondary: #5c5f77;
     --text-muted: #6c6f85;
     --accent-bg-mantle: rgba(230,233,239,1);
+    --accent-bg-mantle-alpha: rgba(230,233,239,0.75);
     --accent-blue: #1e66f5;
     --hover-red:rgba(210,15,57, 0.08);
     
