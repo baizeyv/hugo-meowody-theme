@@ -22,11 +22,15 @@
     </p>
     
     {{ if site.Params.beian }}
-      {{ $beianAvatarAsset := site.Params.beian.assetPath | default site.Params.avatar.assetPath }}
+      {{ $beianAvatarAsset := resources.Get site.Params.beian.assetPath }}
       <div class="beian-content">
         <a href="https://beian.miit.gov.cn" id="beian" target="_blank">{{ site.Params.beian.location }} ICP 备 {{ site.Params.beian.icp }} 号</a>
         <div class="beian-gn">
-          <img id="logo-beian" src="{{ $beianAvatarAsset }}" alt="{{ site.Params.beian.location }} 公网安备{{ site.Params.beian.publicSecurity }}号">
+        {{ if $beianAvatarAsset }}
+          <img id="logo-beian" src="{{ $beianAvatarAsset.RelPermalink }}" alt="{{ site.Params.beian.location }} 公网安备{{ site.Params.beian.publicSecurity }}号">
+        {{ else }}
+          <img id="logo-beian" src="/favicon/logo-transparent/beian.png" alt="{{ site.Params.beian.location }} 公网安备{{ site.Params.beian.publicSecurity }}号">
+        {{ end }}
           <a href="https://beian.mps.gov.cn/#/query/webSearch?code={{ site.Params.beian.publicSecurity }}" id="beian" rel="noreferrer" target="_blank">京公网安备 {{ site.Params.beian.publicSecurity }} 号</a>
         </div>
       </div>
