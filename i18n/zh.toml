@@ -1,43 +1,43 @@
 # Alert/Admonition translations
 note = "Note"
-tip = "Tip"
-important = "Important"
-warning = "Warning"
-caution = "Caution"
-info = "Info"
-success = "Success"
-question = "Question"
-danger = "Danger"
+tip = "提示"
+important = "重要"
+warning = "警告"
+caution = "小心"
+info = "信息"
+success = "成功"
+question = "问题"
+danger = "危险"
 bug = "Bug"
-example = "Example"
+example = "例子"
 
 # Header & navigation
-menu = "Menu"
-search = "Search"
-searchPlaceholder = "Search..."
-clearSearch = "Clear search"
-closeSearch = "Close search"
-toggleMenu = "Toggle menu"
-closeMenu = "Close menu"
-toggleTheme = "Toggle theme"
-language = "Language"
+menu = "菜单"
+search = "搜索"
+searchPlaceholder = "搜索中..."
+clearSearch = "清空搜索"
+closeSearch = "关闭搜索"
+toggleMenu = "切换菜单"
+closeMenu = "关闭菜单"
+toggleTheme = "切换主题"
+language = "语言"
 
 # Accessibility
-skipToMain = "Skip to main content"
-scrollToTop = "Scroll to top"
+skipToMain = "跳转到主内容"
+scrollToTop = "滚动到顶部"
 
 # Home
-home = "Home"
-recentPosts = "Recent Posts"
+home = "主页"
+recentPosts = "最近文章"
 
 # List & filters
-posts = "Posts"
-filters = "Filters"
-searchTags = "Search for tags..."
-tagsLabel = "Tags"
-yearMonth = "Year & Month"
-allDates = "All Dates"
-clearFilters = "Clear Filters"
+posts = "文章"
+filters = "筛选器"
+searchTags = "搜索标签中..."
+tagsLabel = "标签"
+yearMonth = "年 & 月"
+allDates = "所有日期"
+clearFilters = "清空筛选器"
 
 # Pagination
 pageOf = "Page %s of %s"
@@ -46,15 +46,15 @@ postPlural = "posts"
 pageSingular = "page"
 pagePlural = "pages"
 postsOnThisPage = "on this page"
-paginationFirst = "First"
-paginationPrev = "Previous"
-paginationNext = "Next"
-paginationLast = "Last"
+paginationFirst = "第一页"
+paginationPrev = "上一页"
+paginationNext = "下一页"
+paginationLast = "最后一页"
 
 # Navigation links
-backToHome = "Back to Home"
-allTags = "All Tags"
-readMore = "Read more"
+backToHome = "回到主页"
+allTags = "所有标签"
+readMore = "更多"
 
 # Archive
 archive = "Archive"
@@ -66,24 +66,21 @@ navPrev = "Previous"
 navNext = "Next"
 
 # Post meta
-wordCount = "words"
-readingTime = "min"
+wordCount = "字"
+readingTime = "分"
 
 # Table of contents
-tableOfContents = "Table of Contents"
-toggleToc = "Toggle table of contents"
+tableOfContents = "目录"
+toggleToc = "切换目录"
 
 # Tags page
 tagsHelp = "Click any tag to view related posts"
-searchNoResults = "No results found"
-searchNoTagsFound = "No tags found"
-
-# Buy Me a Coffee
-buyMeACoffeeDescription = "Support me on Buy me a coffee!"
+searchNoResults = "无结果"
+searchNoTagsFound = "无标签"
 
 # 404 page
-404Title = "This Page Does Not Exist 我"
+404Title = "页面走丢了~"
 404DefaultMessage = "Sorry, the page you are looking for could not be found. 你"
-404ReturnHome = "Return to the home page 发"
+404ReturnHome = "回到主页"
 
 
