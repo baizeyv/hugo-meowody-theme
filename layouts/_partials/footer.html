@@ -20,6 +20,17 @@
         {{ site.Params.footerText }}
       {{ end }}
     </p>
+    
+    {{ if site.Params.beian }}
+      <div class="beian-content">
+        <a href="https://beian.miit.gov.cn" id="beian" target="_blank">{{ site.Params.beian.location }} ICP 备 {{ site.Params.beian.icp }} 号</a>
+        <div class="beian-gn">
+          <img id="logo-beian" src="/beian.png" alt="{{ site.Params.beian.location }} 公网安备{{ site.Params.beian.publicSecurity }}号">
+          <a href="https://beian.mps.gov.cn/#/query/webSearch?code={{ site.Params.beian.publicSecurity }}" id="beian" rel="noreferrer" target="_blank">京公网安备 {{ site.Params.beian.publicSecurity }} 号</a>
+        </div>
+      </div>
+    {{ end }}
+
     {{ if site.Params.social }}
       <div class="footer-social">
         {{ partial "social-links.html" . }}
