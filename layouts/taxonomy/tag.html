@@ -91,8 +91,8 @@
 
     <!-- Navigation links -->
     <div class="tag-nav-links">
-      <a href="{{ "/tags" | relLangURL }}" class="tag-nav-link">{{ i18n "allTags" }}</a>
-      <a href="{{ "/" | relLangURL }}" class="tag-nav-link">{{ i18n "backToHome" }}</a>
+      <a href="{{ "tags" | relLangURL }}" class="tag-nav-link">{{ i18n "allTags" }}</a>
+      <a href="{{ .Site.Home.RelPermalink }}" class="tag-nav-link">{{ i18n "backToHome" }}</a>
     </div>
   </div>
 {{ end }}
