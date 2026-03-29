@@ -27,3 +27,28 @@
     {{ end }}
   </div>
 </footer>
+<script>
+// ! 补全文章summary中未闭合的HTML标签，防止出现样式错乱
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.post-description').forEach(el => {
+        const escapedHTML = el.getAttribute('data-raw');
+        
+        if (escapedHTML) {
+            // 第一步：创建一个解析器，将转义字符（&lt;）转回原始字符（<）
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(escapedHTML, 'text/html');
+            const decodedHTML = doc.documentElement.textContent;
+      
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = decodedHTML;
+
+            // 第二步：将还原后的 HTML 赋值给容器
+            // 此时浏览器会自动处理未闭合标签（压栈/出栈逻辑）
+            el.innerHTML = tempDiv.innerHTML;
+
+            // 可选：移除 data 属性保持整洁
+            el.removeAttribute('data-raw');
+        }
+    });
+});
+</script>

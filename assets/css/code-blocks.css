@@ -140,12 +140,10 @@
 .code-block-content {
   transition: opacity var(--transition-base);
   overflow: visible;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .code-block-content code .line {
-  padding-left: 10px;
+  padding-left: 5px;
 }
 
 .code-block-wrapper.collapsed .code-block-content {
@@ -163,11 +161,6 @@
   right: 0;
   height: 50px;
   /* Match the chroma code block background color */
-  background: linear-gradient(to bottom, transparent, #24273a);
+  background: linear-gradient(to bottom, transparent, var(--accent-bg-crust));
   pointer-events: none;
-}
-
-/* Light theme - use light syntax theme background */
-[data-theme="light"] .code-block-wrapper.collapsed .code-block-content::after {
-  background: linear-gradient(to bottom, transparent, #303446);
 }

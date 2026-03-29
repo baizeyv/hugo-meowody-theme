@@ -24,9 +24,27 @@
     {{ if $page.Description }}
       <p class="post-description">{{ $page.Description }}</p>
     {{ else if $page.Summary }}
-      <p class="post-description">{{ $page.Summary | truncate 150 }}</p>
+      <p class="post-description" data-raw="{{ $page.Summary | htmlEscape }}"></p>
     {{ end }}
+      <!-- <p class="post-description">{{ $page.Summary | safeHTML }}</p> -->
 
+
+      <!-- {{ $s := $page.Summary }}
+      {{/* 1. 统计所有 <div> 的数量 */}}
+      {{ $openDivs := findRE "<div" $s }}
+      {{ $closeDivs := findRE "</div>" $s }}
+      {{/* 2. 计算差值 (numOpen - numClose) */}}
+      {{ $diff := sub (len $openDivs) (len $closeDivs) }}
+      <div class="post-description">
+        {{ $s | safeHTML }}
+
+        {{/* 3. 如果差值大于 0，则循环补齐 </div> */}}
+        {{ if gt $diff 0 }}
+          {{ range (seq $diff) }}
+            </div>
+          {{ end }}
+        {{ end }}
+      </div> -->
     {{ partial "post-meta-inline.html" $page }}
 
     {{ partial "post-tags-inline.html" (dict "Params" $page.Params "limit" $limit) }}
