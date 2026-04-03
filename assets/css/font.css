@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Maple Mono NF';
+    src: url('font/MAPLEMONO-NF-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Maple Mono NF CN';
+    src: url('font/MAPLEMONO-NF-CN-REGULAR.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+code {
+    font-family: 'Maple Mono NF', 'Maple Mono NF CN', monospace !important;
+    font-variant-ligatures: normal;
+    -webkit-font-smoothing: antialiased;
+}
