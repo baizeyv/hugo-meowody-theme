@@ -1,13 +1,13 @@
 <!-- Favicons (configurable via site.Params.favicons.*, defaults to standard paths) -->
 {{- $fav := site.Params.favicons | default (dict) -}}
-{{- $ico := (index $fav "ico") | default "/favicon.ico" | absURL -}}
-{{- $svg := (index $fav "svg") | default "/favicon.svg" | absURL -}}
-{{- $png := (index $fav "png") | default "/favicon-96x96.png" | absURL -}}
-{{- $png16 := (index $fav "png16") | default "/favicon-16x16.png" | absURL -}}
-{{- $png32 := (index $fav "png32") | default "/favicon-32x32.png" | absURL -}}
-{{- $apple180 := (index $fav "apple180") | default "/apple-touch-icon.png" | absURL -}}
-{{- $android192 := (index $fav "android192") | default "/android-chrome-192x192.png" | absURL -}}
-{{- $android512 := (index $fav "android512") | default "/android-chrome-512x512.png" | absURL -}}
+{{- $ico := (index $fav "ico") | default "favicon.ico" | absURL -}}
+{{- $svg := (index $fav "svg") | default "favicon.svg" | absURL -}}
+{{- $png := (index $fav "png") | default "favicon-96x96.png" | absURL -}}
+{{- $png16 := (index $fav "png16") | default "favicon-16x16.png" | absURL -}}
+{{- $png32 := (index $fav "png32") | default "favicon-32x32.png" | absURL -}}
+{{- $apple180 := (index $fav "apple180") | default "apple-touch-icon.png" | absURL -}}
+{{- $android192 := (index $fav "android192") | default "android-chrome-192x192.png" | absURL -}}
+{{- $android512 := (index $fav "android512") | default "android-chrome-512x512.png" | absURL -}}
 {{- $manifest := (index $fav "manifest") | default "site.webmanifest" | absURL -}}
 
 <!-- Root favicon for Google and other crawlers - Google prefers larger sizes (48x48+) -->
