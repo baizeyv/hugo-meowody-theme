@@ -1,0 +1,9 @@
+{{- $font := resources.Get "font/MAPLEMONO-NF-REGULAR.TTF" -}}
+{{- if $font -}}
+    <link href="{{ $font.RelPermalink }}" as="font" type="font/ttf" crossorigin>
+{{- end -}}
+
+{{- $fontCN := resources.Get "font/MAPLEMONO-NF-CN-REGULAR.TTF" -}}
+{{- if $fontCN -}}
+    <link href="{{ $fontCN.RelPermalink }}" as="font" type="font/ttf" crossorigin>
+{{- end -}}
