@@ -320,7 +320,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
-  color: var(--text-primary);
+  color: var(--home-title-color);
   text-decoration: underline;
   text-decoration-color: transparent;
   text-underline-offset: 0.25em;
@@ -342,7 +342,32 @@
   color: var(--text-secondary);
   font-size: 0.875rem;
   margin-bottom: var(--spacing-sm);
-  line-height: 1.6;
+  line-height: 2;
+  max-height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px dashed var(--border-color);
+  padding: 0px 10px;
+}
+
+.tag-post-summary > * {
+  font-size: inherit;
+}
+
+.tag-post-summary::after {
+  content: "";
+  position: sticky; /* 核心技巧 */
+  bottom: 0;
+  display: block;
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  height: 50px; /* 渐变区域的高度 */
+  
+  /* 渐变效果：从完全透明过渡到白色（假设父容器背景是白色） */
+  background: linear-gradient(to bottom, transparent, var(--accent-bg-crust-alpha));
+  
+  /* 确保不遮挡点击事件（可选） */
+  pointer-events: none;
 }
 
 .tag-post-tags {

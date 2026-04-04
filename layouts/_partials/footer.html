@@ -39,9 +39,7 @@
   </div>
 </footer>
 <script>
-// ! 补全文章summary中未闭合的HTML标签，防止出现样式错乱
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.post-description').forEach(el => {
+function parse(el) {
         const escapedHTML = el.getAttribute('data-raw');
         
         if (escapedHTML) {
@@ -60,6 +58,14 @@ document.addEventListener("DOMContentLoaded", function() {
             // 可选：移除 data 属性保持整洁
             el.removeAttribute('data-raw');
         }
+}
+// ! 补全文章summary中未闭合的HTML标签，防止出现样式错乱
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.post-description').forEach(el => {
+        parse(el);
+    });
+    document.querySelectorAll('.tag-post-summary').forEach(el => {
+        parse(el);
     });
 });
 </script>

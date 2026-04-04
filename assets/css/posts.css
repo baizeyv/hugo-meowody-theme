@@ -93,6 +93,10 @@
   padding: 0px 10px;
 }
 
+.post-description > * {
+  font-size: 16px;
+}
+
 .post-description::after {
   content: "";
   position: sticky; /* 核心技巧 */
@@ -167,6 +171,7 @@
   box-shadow: 0 0 8px var(--accent-light-purple-rgba-03);
 }
 
+.tag-post-summary hr,
 .post-content hr,
 .post-content-main hr {
   border: none;

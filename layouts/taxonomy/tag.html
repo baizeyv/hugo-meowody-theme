@@ -45,10 +45,14 @@
                     <time class="tag-post-date">{{ .Date | time.Format ":date_short" }}</time>
                   </div>
 
-                  {{ if .Summary }}
+                  {{ if .Description }}
                     <div class="tag-post-summary">
-                      {{ .Summary | plainify | truncate 140 }}
+                      {{ .Description }}
                     </div>
+                  {{ else if .Summary }}
+                    <p class="tag-post-summary" data-raw="{{ .Summary | htmlEscape }}">
+                      <!-- {{ .Summary | plainify | truncate 140 }} -->
+                    </p>
                   {{ end }}
 
                   {{ if .Params.tags }}
