@@ -166,3 +166,11 @@
   color: var(--tag-color);
   box-shadow: 0 0 8px var(--accent-light-purple-rgba-03);
 }
+
+.post-content hr,
+.post-content-main hr {
+  border: none;
+  height: 3px;
+  background-image: linear-gradient(to right, transparent, var(--accent-primary), transparent);
+  margin: 20px 0px;
+}
