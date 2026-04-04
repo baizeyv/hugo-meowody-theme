@@ -58,7 +58,7 @@
                   {{ if .Params.tags }}
                     <div class="tag-post-tags">
                       {{ range .Params.tags }}
-                        {{ $isCurrentTag := eq . $.Title }}
+                        {{ $isCurrentTag := eq (title .) $.Title }}
                         <a
                           href="{{ "tags/" | relLangURL }}{{ . | urlize }}"
                           class="tag-chip {{ if $isCurrentTag }}tag-chip-active{{ end }}"
