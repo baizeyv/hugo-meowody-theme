@@ -85,7 +85,28 @@
 .post-description {
   color: var(--text-secondary);
   margin: 0;
-  line-height: 1.6;
+  line-height: 2;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px dashed var(--border-color);
+  padding: 0px 10px;
+}
+
+.post-description::after {
+  content: "";
+  position: sticky; /* 核心技巧 */
+  bottom: 0;
+  display: block;
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  height: 50px; /* 渐变区域的高度 */
+  
+  /* 渐变效果：从完全透明过渡到白色（假设父容器背景是白色） */
+  background: linear-gradient(to bottom, transparent, var(--accent-bg-crust-alpha));
+  
+  /* 确保不遮挡点击事件（可选） */
+  pointer-events: none;
 }
 
 .post-meta-inline {
