@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: var(--spacing-md);
   align-items: center;
-  background-color: var(--bg-secondary);
+  background-color: var(--accent-bg-mantle);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 0.5rem;

@@ -40,7 +40,7 @@ allDates = "所有日期"
 clearFilters = "清空筛选器"
 
 # Pagination
-pageOf = "Page %s of %s"
+pageOf = "Page %d of %d"
 postSingular = "post"
 postPlural = "posts"
 pageSingular = "page"
