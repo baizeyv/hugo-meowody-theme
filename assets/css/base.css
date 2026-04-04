@@ -106,3 +106,27 @@ pre::-webkit-scrollbar-track {
     background-color: var(--bg-primary); /* 轨道颜色 */
     border-radius: 5px;
 }
+
+/* 1. 针对 Chrome, Safari, Edge (WebKit内核) */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* 2. 针对 Firefox (火狐) */
+html {
+    scrollbar-width: none;
+}
+
+/* 3. 针对 IE 和 老版 Edge */
+html {
+    -ms-overflow-style: none;
+}
+
+/* 确保 body 也应用同样的规则（有时滚动条挂载在 body 上） */
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
