@@ -139,6 +139,14 @@
   font-size: 0.9em;
 }
 
+.post-content p .highlight code {
+  background-color: transparent;
+}
+
+.post-content p .highlight {
+  border-radius: 0.25rem;;
+}
+
 .post-content .alert-content a,
 .post-content-main .alert-content a {
   color: var(--accent-primary);
