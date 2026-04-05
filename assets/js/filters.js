@@ -12,6 +12,7 @@ function initFilters() {
   const tagSearchResults = document.getElementById("tag-search-results");
   const selectedTagsContainer = document.getElementById("selected-tags-container");
   const allTagsData = document.getElementById("all-tags-data");
+  const paginationFilterCount = document.querySelectorAll(".pagination-filter-count")
 
   if (!postsContainer) return;
 
@@ -202,9 +203,15 @@ function initFilters() {
     });
 
     // Update filtered count
-    if (filteredCount) {
-      filteredCount.textContent = visibleCount;
+    if (paginationFilterCount) {
+      paginationFilterCount.forEach((el) => {
+        el.textContent = visibleCount;
+      });
     }
+    // Update filtered count
+    // if (filteredCount) {
+      // filteredCount.textContent = visibleCount;
+    // }
   }
 
   // Event listeners

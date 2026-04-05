@@ -298,6 +298,7 @@
   margin-top: var(--spacing-2xl);
   padding-top: var(--spacing-xl);
   border-top: 1px solid var(--border-color);
+  width: 100%;
 }
 
 .pagination-link {

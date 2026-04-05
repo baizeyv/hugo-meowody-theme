@@ -10,7 +10,7 @@
           {{ printf (i18n "pageOf") $currentPage $totalPages }}
         </span>
         <span class="pagination-count">
-          ({{ $paginator.NumberOfElements }} {{ if eq $paginator.NumberOfElements 1 }}{{ i18n "postSingular" }}{{ else }}{{ i18n "postPlural" }}{{ end }} {{ i18n "postsOnThisPage" }})
+          (<span class="pagination-filter-count">{{ $paginator.NumberOfElements }}</span> {{ if eq $paginator.NumberOfElements 1 }}{{ i18n "postSingular" }}{{ else }}{{ i18n "postPlural" }}{{ end }} {{ i18n "postsOnThisPage" }})
         </span>
       </div>
 

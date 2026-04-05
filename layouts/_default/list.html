@@ -1,5 +1,7 @@
 {{ define "main" }}
-  {{ $allPosts := where site.RegularPages "Type" "posts" }}
+  <!-- {{ $allPosts := where site.RegularPages "Type" "posts" }} -->
+  <!-- 从全部选项变为只有当前页显示的这些的选项 -->
+  {{ $allPosts := .Paginator.Pages }}
   {{ $allTags := slice }}
   {{ range $allPosts }}
     {{ if .Params.tags }}
@@ -15,7 +17,6 @@
     {{ $yearMonths = $yearMonths | append $yearMonth }}
   {{ end }}
   {{ $uniqueYearMonths := $yearMonths | uniq | sort }}
-
 
   <div class="list-container">
     <header class="list-header">
@@ -94,6 +95,8 @@
         <button id="clear-filters" class="filter-clear-btn" aria-label="{{ i18n "clearFilters" }}">
           {{ i18n "clearFilters" }}
         </button>
+    <!-- Pagination -->
+    {{ partial "pagination.html" . }}
       </div>
     </div>
 
