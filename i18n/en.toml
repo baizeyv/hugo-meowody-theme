@@ -38,6 +38,7 @@ tagsLabel = "Tags"
 yearMonth = "Year & Month"
 allDates = "All Dates"
 clearFilters = "Clear Filters"
+dateFormat = "January, 2006"
 
 # Pagination
 pageOf = "Page %d of %d"

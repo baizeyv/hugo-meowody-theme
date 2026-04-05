@@ -38,6 +38,7 @@ tagsLabel = "标签"
 yearMonth = "年 & 月"
 allDates = "所有日期"
 clearFilters = "清空筛选器"
+dateFormat = "2006年01月"
 
 # Pagination
 pageOf = "Page %d of %d"

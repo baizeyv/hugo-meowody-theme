@@ -228,8 +228,7 @@
 }
 
 .filter-tags {
-  /* display: flex; */
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-top: var(--spacing-xs);
@@ -269,7 +268,8 @@
 .filter-tag-input:checked + .filter-tag-label {
   background-color: var(--accent-primary);
   border-color: var(--accent-primary);
-  color: white;
+  color: var(--bg-primary);
+  font-weight: 700;
 }
 
 .filter-clear-btn {

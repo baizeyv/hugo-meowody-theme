@@ -85,7 +85,8 @@
             <option value="">{{ i18n "allDates" }}</option>
             {{ range $uniqueYearMonths }}
               {{ $t := (printf "%s-01" .) | time.AsTime }}
-              <option value="{{ . }}">{{ $t | time.Format ":date_long" }}</option>
+              <!-- <option value="{{ . }}">{{ $t | time.Format "2006 January" }}</option> -->
+              <option value="{{ . }}">{{ $t | time.Format (i18n "dateFormat") }}</option>
             {{ end }}
           </select>
         </div>

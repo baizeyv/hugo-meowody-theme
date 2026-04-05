@@ -166,8 +166,9 @@
 }
 
 .tag-post-summary .highlight .chroma,
-.post-content p .highlight .chroma {
+.post-content .highlight .chroma {
   border-radius: 0.25rem;;
+  overflow: hidden;
 }
 
 .tag-post-summary .alert-content a,
